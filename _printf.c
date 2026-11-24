@@ -9,15 +9,18 @@
 
 int _printf(const char *format, ...)
 {
-  va_list args;
+  va_list args; 
+
   specifier_t specifier = {
     {'c', print_c},
     {NULL,NULL}
   };
+
   if (format == NULL)
   {
     return (NULL);
   }
+  
   va_start(args,format);
   va_end(args);
 }
