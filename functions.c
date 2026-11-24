@@ -1,20 +1,27 @@
 #include "main.h"
 
-/**
- * _strlen - counts the elements of a string
- * @s: a string we want to count the elements of
- *
- * Return: Returns strilen the value
- * containing the counted string elements
- */
-int _strlen(char *s)
+int print_string(char * s)
 {
-	int i;
-	int strilen = 0;
+	int len = _strlen(s);
+	return(write(1,s,len));
+}
 
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		strilen++;
-	}
-	return (strilen);
+int print_c(char * s)
+{
+	return(write(1,s,1));
+}
+
+int _print_percent(char * s)
+{
+ 
+}
+
+void print_integer(char * s)
+{
+	
+}
+
+void print_decimal(char * s)
+{
+	
 }
