@@ -1,15 +1,18 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <stdarg.h>
+#include <stddef.h>
+#include <unistd.h>
 /**
  * struct specifier - Struct specifier + function
  * @spe: specifier
  * @f: function
  */
 
-typedef struc specifier {
-	char spe;
-	int (*f)(char *);
+typedef struct specifier {
+	char *spe;
+	int (*f)(va_list);
 }specifier_t;
 
 
@@ -17,9 +20,11 @@ int _strlen(char *s);
 
 int _printf(const char *format, ...);
 
-int print_string(char * s);
-int print_c(char * s);
-int print_integer(char * s);
-int print_decimal(char * s);
-int _print_string(char * s);
+int (*get_specifier(const char *s))(va_list);
+
+int print_string(va_list args);
+int print_c(va_list args);
+int print_integer(va_list args);
+int print_decimal(va_list args);
+int print_percent(va_list args);
 #endif
