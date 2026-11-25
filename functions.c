@@ -1,27 +1,32 @@
 #include "main.h"
 
-int print_string(char * s)
+int print_string(va_list args)
 {
-	int len = _strlen(s);
-	return(write(1,s,len));
+	char *str;
+	int len;
+	str = va_arg(args,char *);
+
+	len = _strlen(str);
+	return(write(1,str,len));
 }
 
-int print_c(char * s)
+int print_c(va_list args)
 {
-	return(write(1,s,1));
+	char c = va_arg(args, int);
+	return(write(1,&c,1));
 }
 
-int _print_percent(char * s)
+int print_percent(va_list args __attribute__((unused)))
 {
- 
+ return write(1,"%",1);
 }
 
-void print_integer(char * s)
+int print_integer(va_list args __attribute__((unused)))
 {
-	
+	return(0);
 }
 
-void print_decimal(char * s)
+int print_decimal(va_list args __attribute__((unused)))
 {
-	
+	return(0);
 }
