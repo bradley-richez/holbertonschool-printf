@@ -10,19 +10,23 @@
 int _printf(const char *format, ...)
 {
   va_list args; 
-
-  specifier_t specifier = {
-    {'c', print_c},
-    {NULL,NULL}
-  };
+  int text = 0;
 
   if (format == NULL)
   {
-    return (NULL);
+    return (-1);
   }
   
   va_start(args,format);
+  /**
+   * format[i] == "%"
+   * format[i] == "\0"
+   * 
+   * 
+   */
+  
   va_end(args);
+  return (text);
 }
 
 
@@ -31,6 +35,6 @@ int _printf(const char *format, ...)
  */
 int main()
 {
-	_print_string("fsfvfo esihfeilfug  ifgfieyg%%ofgfids\n");
+	_printf("fsfvfo esihfeilfug  ifgfieyg%%ofgfids\n");
 	return (0);
 }
